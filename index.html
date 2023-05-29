@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Random User Generator</title>
+</head>
+
+<body>
+    <!-- If you work with front-end framework or Single Page Application, everything we do (creating components, creating UI ) 
+        is going to be in Javascript, it loads and displays it into this div
+    -->
+    <div id="app">
+        <!-- As long as we are in the div#app, we can use any data we have in the Vue App-->
+
+        <!-- Use a "V bind directive" to add a path to src or alt -->
+        <!-- To add firstname and last name, use template literalls with $ sign -->
+        <!-- You can use ":" as a shortcut of "v-bind:" -->
+        <img :class="gender" v-bind:src="picture" v-bind:alt="`${firstName} ${lastName}`">
+        <h1>{{firstName}} {{lastName}}</h1>
+        <h3> Email: {{email}}</h3>
+
+        <!-- Used vbinder for gender as we have differnt styles for male and female -->
+        <!-- Adding functionality to the button, so when we click it, it will load new data
+         For this we will use "events" with the help of "v-on:click (click is the event)"
+         This will call a method getUser() within our app -->
+        <button v-on:click="getUser()" :class="gender">Get Random User
+        </button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
